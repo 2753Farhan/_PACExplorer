@@ -1,1 +1,1 @@
-##PACE in the classroom
+## PACE in the classroom
