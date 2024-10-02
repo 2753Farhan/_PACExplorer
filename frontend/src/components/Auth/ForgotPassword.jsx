@@ -35,14 +35,14 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <section className="authPage">
-        <div className="container">
-          <div className="header">
+      <section className="">
+        <div className="">
+          <div className="">
             <img src="/RecruitEase.png" alt="logo" />
             <h3>Forgot Password</h3>
           </div>
           <form onSubmit={handleForgotPassword}>
-            <div className="inputTag">
+            <div className="">
               <label>Email Address</label>
               <div>
                 <input
@@ -60,7 +60,7 @@ const ForgotPassword = () => {
             <Link to={"/login"}>Back to Login</Link>
           </form>
         </div>
-        <div className="banner">
+        <div className="">
           <img src="/login.png" alt="forgot password" />
         </div>
       </section>

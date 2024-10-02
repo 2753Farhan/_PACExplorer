@@ -25,22 +25,22 @@ function DataInputForm() {
   };
 
   return (
-    <div className="form-container"> {/* Apply container class */}
-      <form onSubmit={handleSubmit} className="input-form"> {/* Apply input form class */}
+    <div className=""> {/* Apply container class */}
+      <form onSubmit={handleSubmit} className=""> {/* Apply input form class */}
         <label htmlFor="dataInput"><h4>WHAT DO YOU WANT?</h4></label>
         <input
           type="text"
           id="dataInput"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className="input-field" 
+          className="" 
         />
-        <button type="submit" className="submit-button">Submit</button> {/* Apply submit button class */}
+        <button type="submit" className="">Submit</button> {/* Apply submit button class */}
       </form>
-      {error && <div className="error-message">Error: {error}</div>}
+      {error && <div className="">Error: {error}</div>}
       {responseData && (
-        <div className="response-container">
-          <ul className="response-list">
+        <div className="">
+          <ul className="">
             <p>{responseData}</p>
           </ul>
         </div>

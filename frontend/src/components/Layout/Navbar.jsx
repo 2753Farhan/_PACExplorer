@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../main";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { GiHamburgerMenu } from "react-icons/gi";
-import "./design.css"
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -27,85 +26,103 @@ const Navbar = () => {
     }
   };
 
+  // Do not render Navbar if not authenticated
+  if (!isAuthorized) {
+    return null;
+  }
+
   return (
-    <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>
-      <div className="container">
+    <nav className="bg-gray-800 text-white shadow-lg">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        {/* Logo */}
         <div className="logo">
-          <img src="/RecruitEase.png" alt="logo" />
+          <img src="/RecruitEase.png" alt="logo" className="w-24" />
         </div>
-        <ul className={!show ? "menu" : "show-menu menu"}>
+
+        {/* Menu Links */}
+        <ul className={`hidden md:flex space-x-6`}>
           <li>
-            <Link to={"/"} onClick={() => setShow(false)}>
+            <Link
+              to={"/"}
+              onClick={() => setShow(false)}
+              className="hover:text-gray-300"
+            >
               HOME
             </Link>
           </li>
-          {user && user.role === "Employer" ? (
-          <li>
-            <Link to={"/job/me"} onClick={() => setShow(false)}>
-              My Posted Jobs
-            </Link>
-          </li>
-          ):(
+
+          {user && user.role === "Employer" && (
             <li>
-            <Link to={"/job/getAll"} onClick={() => setShow(false)}>
-              Available Jobs
-            </Link>
-          </li>
-
-          )}
-          {user && user.role === "Employer" ? (
-            <>
-             <li class="dropdown">
-            <a href="#">FILTER</a>
-            <ul class="dropdown-content">
-              <li><Link to="http://localhost:4000/api/v1/resume/skill" onClick={() => setShow(false)}>
-                SE GRADUATE
-              </Link></li>
-              <li>
-              <Link to="http://localhost:4000/api/v1/resume/cp" onClick={() => setShow(false)}>
-                COMPETITIVE PROGRAMMER
+              <Link
+                to={"/job/post"}
+                onClick={() => setShow(false)}
+                className="hover:text-gray-300"
+              >
+                POST JOB
               </Link>
-              </li>
-              <li>
-              <Link to="http://localhost:4000/api/v1/resume/cg" onClick={() => setShow(false)}>
-                BEST CV
-              </Link>
-              </li>    
-              <li>
-                <Link to={"http://localhost:5173/getData"} onClick={() => setShow(false)}>
-                  OTHERS
-                </Link>
-              </li>             
-            </ul>
-          </li>
-            </>
-          ) : (
-            <></>
-          )}
-          <li>
-            <Link to={"/applications/me"} onClick={() => setShow(false)}>
-              {user && user.role === "Employer"
-                ? "APPLICATIONS"
-                : "MY APPLICATIONS"}
-            </Link>
-          </li>
-          {user && user.role === "Employer" ? (
-            <>
-             <li>
-                <Link to={"/job/post"} onClick={() => setShow(false)}>
-                  POST JOB
-                </Link>
-              </li>
-            </>
-          ) : (
-            <></>
+            </li>
           )}
 
-          <button onClick={handleLogout}>LOGOUT</button>
+          {/* Logout Button */}
+          {isAuthorized && (
+            <li>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition duration-300"
+              >
+                LOGOUT
+              </button>
+            </li>
+          )}
         </ul>
-        <div className="hamburger">
-          <GiHamburgerMenu onClick={() => setShow(!show)} />
+
+        {/* Hamburger Menu Icon */}
+        <div className="md:hidden">
+          <GiHamburgerMenu
+            onClick={() => setShow(!show)}
+            className="text-2xl cursor-pointer"
+          />
         </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden ${show ? "block" : "hidden"} bg-gray-700 text-white`}
+      >
+        <ul className="space-y-4 py-4">
+          <li>
+            <Link
+              to={"/"}
+              onClick={() => setShow(false)}
+              className="block px-4 py-2 hover:bg-gray-600"
+            >
+              HOME
+            </Link>
+          </li>
+
+          {user && user.role === "Employer" && (
+            <li>
+              <Link
+                to={"/job/post"}
+                onClick={() => setShow(false)}
+                className="block px-4 py-2 hover:bg-gray-600"
+              >
+                POST JOB
+              </Link>
+            </li>
+          )}
+
+          {isAuthorized && (
+            <li>
+              <button
+                onClick={handleLogout}
+                className="block w-full text-left px-4 py-2 bg-red-600 hover:bg-red-700 text-white"
+              >
+                LOGOUT
+              </button>
+            </li>
+          )}
+        </ul>
       </div>
     </nav>
   );

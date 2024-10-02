@@ -16,7 +16,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
 
-  const { isAuthorized, setIsAuthorized, user, setUser } = useContext(Context);
+  const { isAuthorized, setIsAuthorized } = useContext(Context);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -43,87 +43,138 @@ const Register = () => {
     }
   };
 
-  if(isAuthorized){
-    return <Navigate to={'/'}/>
+  if (isAuthorized) {
+    return <Navigate to={"/"} />;
   }
-
 
   return (
     <>
-      <section className="authPage">
-        <div className="container">
-          <div className="header">
-            <img src="/RecruitEase.png" alt="logo" />
-            <h3>Create a new account</h3>
+      <section className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row w-11/12 md:w-8/12 lg:w-6/12">
+          {/* Left section */}
+          <div className="hidden md:block md:w-1/2">
+            <img
+              src="/register.png"
+              alt="register"
+              className="w-full h-full object-cover rounded-l-lg"
+            />
           </div>
-          <form>
-            <div className="inputTag">
-              <label>Register As</label>
-              <div>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option value="">Select Role</option>
-                  <option value="Employer">Employer</option>
-                  <option value="Job Seeker">Job Seeker</option>
-                </select>
-                <FaRegUser />
-              </div>
+          {/* Right section (Form) */}
+          <div className="w-full md:w-1/2 p-8">
+            <div className="flex justify-center mb-8">
+              <img
+                src="/RecruitEase.png"
+                alt="logo"
+                className="w-32 h-auto"
+              />
             </div>
-            <div className="inputTag">
-              <label>Name</label>
+            <h3 className="text-2xl font-semibold text-gray-800 text-center mb-6">
+              Create a new account
+            </h3>
+            <form onSubmit={handleRegister} className="space-y-4">
+              {/* Role Selector */}
               <div>
-                <input
-                  type="text"
-                  placeholder="Zeeshan"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <FaPencilAlt />
+                <label className="block text-gray-700 font-medium mb-1">
+                  Register As
+                </label>
+                <div className="flex items-center bg-gray-100 rounded-md px-4 py-2">
+                  <select
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    className="w-full bg-transparent border-none outline-none text-gray-700"
+                  >
+                    <option value="">Select Role</option>
+                    <option value="Employer">Employer</option>
+                    <option value="Job Seeker">Job Seeker</option>
+                  </select>
+                  <FaRegUser className="text-gray-500 ml-2" />
+                </div>
               </div>
-            </div>
-            <div className="inputTag">
-              <label>Email Address</label>
+
+              {/* Name Field */}
               <div>
-                <input
-                  type="email"
-                  placeholder="zk@gmail.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <MdOutlineMailOutline />
+                <label className="block text-gray-700 font-medium mb-1">
+                  Name
+                </label>
+                <div className="flex items-center bg-gray-100 rounded-md px-4 py-2">
+                  <input
+                    type="text"
+                    placeholder="Zeeshan"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full bg-transparent border-none outline-none text-gray-700"
+                  />
+                  <FaPencilAlt className="text-gray-500 ml-2" />
+                </div>
               </div>
-            </div>
-            <div className="inputTag">
-              <label>Phone Number</label>
+
+              {/* Email Field */}
               <div>
-                <input
-                  type="number"
-                  placeholder="12345678"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-                <FaPhoneFlip />
+                <label className="block text-gray-700 font-medium mb-1">
+                  Email Address
+                </label>
+                <div className="flex items-center bg-gray-100 rounded-md px-4 py-2">
+                  <input
+                    type="email"
+                    placeholder="zk@gmail.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-transparent border-none outline-none text-gray-700"
+                  />
+                  <MdOutlineMailOutline className="text-gray-500 ml-2" />
+                </div>
               </div>
-            </div>
-            <div className="inputTag">
-              <label>Password</label>
+
+              {/* Phone Number Field */}
               <div>
-                <input
-                  type="password"
-                  placeholder="Your Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <RiLock2Fill />
+                <label className="block text-gray-700 font-medium mb-1">
+                  Phone Number
+                </label>
+                <div className="flex items-center bg-gray-100 rounded-md px-4 py-2">
+                  <input
+                    type="number"
+                    placeholder="12345678"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full bg-transparent border-none outline-none text-gray-700"
+                  />
+                  <FaPhoneFlip className="text-gray-500 ml-2" />
+                </div>
               </div>
-            </div>
-            <button type="submit" onClick={handleRegister}>
-              Register
-            </button>
-            <Link to={"/login"}>Login Now</Link>
-          </form>
-        </div>
-        <div className="banner">
-          <img src="/register.png" alt="login" />
+
+              {/* Password Field */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">
+                  Password
+                </label>
+                <div className="flex items-center bg-gray-100 rounded-md px-4 py-2">
+                  <input
+                    type="password"
+                    placeholder="Your Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full bg-transparent border-none outline-none text-gray-700"
+                  />
+                  <RiLock2Fill className="text-gray-500 ml-2" />
+                </div>
+              </div>
+
+              {/* Register Button */}
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition duration-300"
+              >
+                Register
+              </button>
+
+              {/* Login Link */}
+              <div className="text-center mt-4">
+                <Link to={"/login"} className="text-blue-500 hover:underline">
+                  Login Now
+                </Link>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
     </>

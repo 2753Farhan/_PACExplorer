@@ -1,83 +1,27 @@
-import React from "react";
-import {
-  MdOutlineDesignServices,
-  MdOutlineWebhook,
-  MdAccountBalance,
-  MdOutlineAnimation,
-} from "react-icons/md";
-import { TbAppsFilled } from "react-icons/tb";
-import { FaReact } from "react-icons/fa";
-import { GiArtificialIntelligence } from "react-icons/gi";
-import { IoGameController } from "react-icons/io5";
-
 const PopularCategories = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "Graphics & Design",
-      subTitle: "305 Open Positions",
-      icon: <MdOutlineDesignServices />,
-    },
-    {
-      id: 2,
-      title: "Mobile App Development",
-      subTitle: "500 Open Positions",
-      icon: <TbAppsFilled />,
-    },
-    {
-      id: 3,
-      title: "Frontend Web Development",
-      subTitle: "200 Open Positions",
-      icon: <MdOutlineWebhook />,
-    },
-    {
-      id: 4,
-      title: "MERN STACK Development",
-      subTitle: "1000+ Open Postions",
-      icon: <FaReact />,
-    },
-    {
-      id: 5,
-      title: "Account & Finance",
-      subTitle: "150 Open Positions",
-      icon: <MdAccountBalance />,
-    },
-    {
-      id: 6,
-      title: "Artificial Intelligence",
-      subTitle: "867 Open Positions",
-      icon: <GiArtificialIntelligence />,
-    },
-    {
-      id: 7,
-      title: "Video Animation",
-      subTitle: "50 Open Positions",
-      icon: <MdOutlineAnimation />,
-    },
-    {
-      id: 8,
-      title: "Game Development",
-      subTitle: "80 Open Positions",
-      icon: <IoGameController />,
-    },
-  ];
   return (
-    <div className="categories">
-      <h3>POPULAR CATEGORIES</h3>
-      <div className="banner">
-        {categories.map((element) => {
-          return (
-            <div className="card" key={element.id}>
-              <div className="icon">{element.icon}</div>
-              <div className="text">
-                <p>{element.title}</p>
-                <p>{element.subTitle}</p>
-              </div>
-            </div>
-          );
-        })}
+    <section className="bg-white py-12">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-semibold text-center mb-8">Explore Our Resources</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-blue-100 p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-xl font-bold mb-2">Elementary</h3>
+            <p>Interactive, engaging materials for younger learners.</p>
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full">View Resources</button>
+          </div>
+          <div className="bg-blue-100 p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-xl font-bold mb-2">Middle School</h3>
+            <p>Hands-on lesson plans and activities for developing scientific curiosity.</p>
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full">View Resources</button>
+          </div>
+          <div className="bg-blue-100 p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-xl font-bold mb-2">High School</h3>
+            <p>Advanced materials and real-world data analysis for future scientists.</p>
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full">View Resources</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
