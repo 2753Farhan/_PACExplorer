@@ -47,7 +47,7 @@ const Login = () => {
         {/* Login Form Section */}
         <div className="w-full md:w-1/2 lg:w-1/3 bg-white bg-opacity-80 p-8 rounded-lg shadow-lg relative z-10">
           <div className="text-center mb-6">
-            <img src="/.png" alt="logo" className="w-24 mx-auto mb-4" />
+            <img src="/logo.png" alt="logo" className="w-24 mx-auto mb-4" />
             <h3 className="text-2xl font-semibold text-gray-800">
               Login to your account
             </h3>

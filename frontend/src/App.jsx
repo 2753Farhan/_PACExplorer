@@ -9,6 +9,7 @@ import axios from "axios";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import Home from "./components/Home/Home";
+import EducationalInterface from "./components/Education/EducationInterface";
 
 import NotFound from "./components/NotFound/NotFound";
 
@@ -40,9 +41,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-
-
-
+          <Route path="/learn/:gradeLevel" element={ <EducationalInterface />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>

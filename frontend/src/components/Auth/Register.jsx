@@ -63,7 +63,7 @@ const Register = () => {
           <div className="w-full md:w-1/2 p-8">
             <div className="flex justify-center mb-8">
               <img
-                src="/RecruitEase.png"
+                src="/logo.png"
                 alt="logo"
                 className="w-32 h-auto"
               />
