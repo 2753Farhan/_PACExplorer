@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/login",
+        "https://pacexplorer-xw3b.onrender.com/api/v1/user/login",
         { email, password }, // Removed role from request body
         {
           headers: {
