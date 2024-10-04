@@ -1,52 +1,71 @@
-import React, { useContext } from "react";
-import { Context } from "../../main";
-import { Link } from "react-router-dom";
-import { FaFacebookF, FaYoutube, FaLinkedin } from "react-icons/fa";
-import { RiInstagramFill } from "react-icons/ri";
+import React from 'react';
+import {
+  FaDribbbleSquare,
+  FaFacebookSquare,
+  FaGithubSquare,
+  FaInstagram,
+  FaTwitterSquare,
+} from 'react-icons/fa';
 
 const Footer = () => {
-  const { isAuthorized } = useContext(Context);
-
-  // Do not render Footer if not authorized
-  if (!isAuthorized) {
-    return null;
-  }
-
   return (
-    <footer className="bg-gray-800 text-white py-6 mt-10">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="text-sm">
-          &copy; {new Date().getFullYear()} All Rights Reserved
+    <footer className="bg-[#001f3f] text-gray-300 py-16">
+      <div className="max-w-[1240px] mx-auto px-4 grid lg:grid-cols-3 gap-8">
+        {/* Brand Section */}
+        <div>
+          <img src="/logo.png" alt="Logo" />
+          <p className="py-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id odit ullam
+            iste repellat consequatur libero reiciendis, blanditiis accusantium.
+          </p>
+          {/* Social Media Icons */}
+          <div className="flex justify-between md:w-[75%] my-6">
+            <FaFacebookSquare size={30} className="hover:text-[#00df9a] transition duration-300" />
+            <FaInstagram size={30} className="hover:text-[#00df9a] transition duration-300" />
+            <FaTwitterSquare size={30} className="hover:text-[#00df9a] transition duration-300" />
+            <FaGithubSquare size={30} className="hover:text-[#00df9a] transition duration-300" />
+            <FaDribbbleSquare size={30} className="hover:text-[#00df9a] transition duration-300" />
+          </div>
         </div>
-        <div className="flex space-x-4 mt-4 md:mt-0">
-          <Link
-            to={"https://www.facebook.com/profile.php?id=100030535123397"}
-            target="_blank"
-            className="hover:text-blue-500"
-          >
-            <FaFacebookF />
-          </Link>
-          <Link
-            to={"https://www.youtube.com/@CodeWithZeeshu"}
-            target="_blank"
-            className="hover:text-red-500"
-          >
-            <FaYoutube />
-          </Link>
-          <Link
-            to={"https://www.linkedin.com/in/zeeshu"}
-            target="_blank"
-            className="hover:text-blue-700"
-          >
-            <FaLinkedin />
-          </Link>
-          <Link
-            to={"https://www.instagram.com/z_4_zeeshuuu/"}
-            target="_blank"
-            className="hover:text-pink-500"
-          >
-            <RiInstagramFill />
-          </Link>
+
+        {/* Links Section */}
+        <div className="lg:col-span-2 flex justify-between mt-6">
+          <div>
+            <h6 className="font-medium text-gray-400">Solutions</h6>
+            <ul>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Analytics</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Marketing</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Commerce</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Insights</li>
+            </ul>
+          </div>
+          <div>
+            <h6 className="font-medium text-gray-400">Support</h6>
+            <ul>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Pricing</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Documentation</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Guides</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">API Status</li>
+            </ul>
+          </div>
+          <div>
+            <h6 className="font-medium text-gray-400">Company</h6>
+            <ul>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">About</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Blog</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Jobs</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Press</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Careers</li>
+            </ul>
+          </div>
+          <div>
+            <h6 className="font-medium text-gray-400">Legal</h6>
+            <ul>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Claim</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Policy</li>
+              <li className="py-2 text-sm hover:text-[#00df9a] transition">Terms</li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,0 +1,35 @@
+.globe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f8ff;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .button-group {
+    margin: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .globe {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+  }
+  
