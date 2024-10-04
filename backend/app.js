@@ -12,7 +12,7 @@ config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: 'https://pacexplorer-j6sj.onrender.com',
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
