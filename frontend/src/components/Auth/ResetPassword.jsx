@@ -14,7 +14,7 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`http://localhost:4000/api/v1/user/reset-password/${id}/${token}`, { password });
+      const res = await axios.post(`https://pacexplorer-xw3b.onrender.com/api/v1/user/reset-password/${id}/${token}`, { password });
       if (res.data.Status === 'Success') {
         setMessage('Password reset successfully!');
         setTimeout(() => {
