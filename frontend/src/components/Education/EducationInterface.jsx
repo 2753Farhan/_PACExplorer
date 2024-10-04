@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float } from '@react-three/drei';
-import { useParams } from 'react-router-dom';
-import PhytoEnemy from '../Games/PhytoEnemy'
+import { useParams, Link } from 'react-router-dom';
+import PhytoEnemy from '../Games/PhytoEnemy'; // Assume this is your ocean-related game
 
 // Activity Tab Component
 const ActivityTab = ({ isActive, activity, content }) => {
   if (!isActive) return null; // Only render the active tab
-
   return (
     <div className="bg-white rounded-xl shadow-xl p-6 min-h-[500px]">
       <h3 className="text-2xl font-bold text-blue-600 mb-4">{activity}</h3>
@@ -23,11 +22,12 @@ const EducationalContent = ({ gradeLevel }) => {
   const activities = {
     lessons: {
       elementary: {
-        title: "Ocean Life Basics",
+        title: "Exploring Phytoplankton",
         content: (
           <div className="space-y-4">
             <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-bold mb-2">Lesson 1: Meet the Ocean Friends</h4>
+              <h4 className="font-bold mb-2">Lesson 1: Meet Phytoplankton</h4>
+              {/* Add an image representing the phytoplankton lesson */}
               <Canvas style={{ height: '200px' }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
@@ -39,17 +39,22 @@ const EducationalContent = ({ gradeLevel }) => {
                 </Float>
                 <OrbitControls enableZoom={false} />
               </Canvas>
-              <p className="mt-2">Learn about different sea creatures and their homes!</p>
+              <p className="mt-2">
+                Learn about how these tiny organisms are essential for the Earth's ecosystem, producing oxygen and supporting marine life!
+              </p>
+              <Link to={`https://nasa-space-app-challenge-ruby.vercel.app/`} className="text-blue-600 underline">View All Lessons</Link>
             </div>
           </div>
         )
       },
       middle: {
-        title: "Ocean Life Basics",
+        title: "Oceans and Climate",
         content: (
           <div className="space-y-4">
             <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-bold mb-2">Lesson 1: Meet the Ocean Friends</h4>
+              <h4 className="font-bold mb-2">Lesson 1: How Oceans Influence Climate</h4>
+              {/* Add an image related to oceans and climate */}
+            
               <Canvas style={{ height: '200px' }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
@@ -61,17 +66,22 @@ const EducationalContent = ({ gradeLevel }) => {
                 </Float>
                 <OrbitControls enableZoom={false} />
               </Canvas>
-              <p className="mt-2">Learn about different sea creatures and their homes!</p>
+              <p className="mt-2">
+                Discover how the ocean regulates global temperatures and influences climate patterns across the planet.
+              </p>
+              <Link to={`https://nasa-space-app-challenge-ruby.vercel.app/`} className="text-blue-600 underline">View All Lessons</Link>
             </div>
           </div>
         )
       },
       high: {
-        title: "Ocean Life Basics",
+        title: "Climate Change and Ocean Ecosystems",
         content: (
           <div className="space-y-4">
             <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-bold mb-2">Lesson 1: Meet the Ocean Friends</h4>
+              <h4 className="font-bold mb-2">Lesson 1: The PACE Mission's Role</h4>
+              {/* Add an image related to NASA’s PACE mission */}
+             
               <Canvas style={{ height: '200px' }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
@@ -83,75 +93,92 @@ const EducationalContent = ({ gradeLevel }) => {
                 </Float>
                 <OrbitControls enableZoom={false} />
               </Canvas>
-              <p className="mt-2">Learn about different sea creatures and their homes!</p>
+              <p className="mt-2">
+                Delve into NASA's PACE mission and how it monitors Earth's oceans and atmosphere to understand climate changes.
+              </p>
+              <Link to={`https://nasa-space-app-challenge-ruby.vercel.app/`} className="text-blue-600 underline">View All Lessons</Link>
             </div>
           </div>
         )
       },
-      // ... (middle and high school lesson content)
     },
     quizzes: {
       elementary: {
-        title: "Fun Ocean Quiz",
+        title: "Phytoplankton Quiz",
         content: (
           <div className="space-y-4">
             <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-bold mb-2">Quiz 1: Ocean Animals</h4>
-              {/* Add quiz content */}
+              <h4 className="font-bold mb-2">Quiz 1: What Do You Know About Phytoplankton?</h4>
+              <Link to={`/quizzes/${gradeLevel}`} className="text-blue-600 underline">Take the Quiz</Link>
             </div>
           </div>
         )
       },
       middle: {
-        title: "Fun Ocean Quiz",
+        title: "Oceans and Climate Quiz",
         content: (
           <div className="space-y-4">
             <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-bold mb-2">Quiz 1: Ocean Animals</h4>
-              {/* Add quiz content */}
+              <h4 className="font-bold mb-2">Quiz 1: How Does the Ocean Affect Weather?</h4>
+              <Link to={`https://efty1309.github.io/quizzapp/`} className="text-blue-600 underline">Take the Quiz</Link>
             </div>
           </div>
         )
       },
       high: {
-        title: "Fun Ocean Quiz",
+        title: "PACE Mission Quiz",
         content: (
           <div className="space-y-4">
             <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-bold mb-2">Quiz 1: Ocean Animals</h4>
-              {/* Add quiz content */}
+              <h4 className="font-bold mb-2">Quiz 1: Understanding PACE and Climate Research</h4>
+              <Link to={`https://efty1309.github.io/quizzapp/`} className="text-blue-600 underline">Take the Quiz</Link>
             </div>
           </div>
         )
       },
-      // ... (middle and high school quiz content)
     },
     games: {
       elementary: {
-        title: "Ocean Explorer Game",
+        title: "Phytoplankton Defense",
         content: (
           <div className="space-y-4">
             <PhytoEnemy />
+            <p className="mt-2">
+              Protect the oceans by keeping the phytoplankton safe from harmful pollutants!
+            </p>
           </div>
         )
       },
-      middle: {
-        title: "Ocean Explorer Game",
+      middle : {
+        title: "Phytoplankton Defense",
         content: (
           <div className="space-y-4">
-            <PhytoEnemy />
+            <p className="mt-2">
+              Test your knowledge of ocean ecosystems and save phytoplankton from environmental threats.
+            </p>
+            {/* Navigation Buttons */}
+            <div className="flex space-x-4">
+              <Link to="http://localhost:5174/" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                Play Phytoplankton Defense
+              </Link>
+              <Link to="/" className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition">
+                Back to Home
+              </Link>
+            </div>
           </div>
         )
       },
       high: {
-        title: "Ocean Explorer Game",
+        title: "Phytoplankton Defense",
         content: (
           <div className="space-y-4">
             <PhytoEnemy />
+            <p className="mt-2">
+              Use strategy and ocean science to defend Earth’s most important tiny organisms.
+            </p>
           </div>
         )
       },
-      // ... (middle and high school game content)
     }
   };
 
@@ -191,22 +218,59 @@ const EducationalContent = ({ gradeLevel }) => {
   );
 };
 
-// Main Component
+// Educational Interface Component
 const EducationalInterface = () => {
   const { gradeLevel } = useParams();
+  const [currentGradeLevel, setCurrentGradeLevel] = useState(gradeLevel || 'elementary');
   
+  const gradeLevelQueries = {
+    elementary: {
+      title: "Elementary Level",
+      learningGoal: "Explore basic ocean life and ecosystem understanding.",
+      currentTopic: "Phytoplankton and their role in the food chain.",
+      prompt: "Learn how tiny ocean plants keep the planet healthy!"
+    },
+    middle: {
+      title: "Middle School Level",
+      learningGoal: "Understand how oceans influence climate and weather patterns.",
+      currentTopic: "Ocean currents and their effects on global climate.",
+      prompt: "Discover how the oceans shape our planet's climate!"
+    },
+    high: {
+      title: "High School Level",
+      learningGoal: "Learn about advanced ecosystem dynamics and climate change.",
+      currentTopic: "The PACE Mission and its role in climate research.",
+      prompt: "Deep dive into climate science with the PACE mission!"
+    }
+  };
+
+  // Get data based on grade level
+  const gradeData = gradeLevelQueries[currentGradeLevel] || gradeLevelQueries['elementary'];
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [gradeLevel]);
+  }, [currentGradeLevel]);
 
   return (
-    <div className="min-h-screen mt-24">
-
-      <span className="text-gray-600">
-            {gradeLevel ? gradeLevel.charAt(0).toUpperCase() + gradeLevel.slice(1) : 'Elementary Level'}
-      </span>
-      <EducationalContent gradeLevel={gradeLevel} />
+    <div className="min-h-screen mt-24 flex flex-col items-center justify-center">
+    <div className="text-gray-600 space-y-4 text-center">
+      <h2 className="text-3xl font-bold">{gradeData.title}</h2>
+      <p className="text-lg font-medium">
+        <span className="font-semibold text-blue-600">Learning Goal: </span>
+        {gradeData.learningGoal}
+      </p>
+      <p className="text-lg font-medium">
+        <span className="font-semibold text-green-600">Current Topic: </span>
+        {gradeData.currentTopic}
+      </p>
+      <p className="text-lg font-medium italic text-gray-700">{gradeData.prompt}</p>
     </div>
+  
+    {/* Pass the current grade level to the educational content */}
+    <div className="mt-4">
+      <EducationalContent gradeLevel={currentGradeLevel} />
+    </div>
+  </div>
+  
   );
 };
 

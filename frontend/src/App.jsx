@@ -13,6 +13,8 @@ import EducationalInterface from "./components/Education/EducationInterface";
 import WorkshopPage from "./components/Education/WorkshopPage";
 import NotFound from "./components/NotFound/NotFound";
 import ResourcesPage from "./components/Education/ResourcesPage";
+import BoatAdventure from "./components/Games/BoatAdventure";
+
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
   useEffect(() => {
@@ -45,6 +47,9 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/workshops" element={<WorkshopPage />} />
+          <Route path="/game/boatgame" element={<BoatAdventure />} />
+      
+
 
         </Routes>
         <Footer />
