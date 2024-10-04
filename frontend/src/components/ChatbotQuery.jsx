@@ -12,7 +12,7 @@ const ChatbotQuery = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`http://localhost:4000/api/v1/resume/chatbot/${jobId}`, { inputData });
+            const response = await axios.post(`https://pacexplorer-xw3b.onrender.com/api/v1/resume/chatbot/${jobId}`, { inputData });
             setResponseMessage(response.data.message);
         } catch (error) {
             toast.error(error.response.data.message || 'Something went wrong');
