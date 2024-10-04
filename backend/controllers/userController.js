@@ -4,10 +4,11 @@ import ErrorHandler from "../middlewares/error.js";
 import { sendToken } from "../utils/jwtToken.js";
 import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
+
 export const register = catchAsyncErrors(async (req, res, next) => {
-  const { name, email, phone, password, role } = req.body;
-  if (!name || !email || !phone || !password || !role) {
+  const { name, email, phone, password } = req.body; // Removed role from destructuring
+  if (!name || !email || !phone || !password) {
     return next(new ErrorHandler("Please fill full form!"));
   }
   const isEmail = await User.findOne({ email });
@@ -19,15 +20,15 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     email,
     phone,
     password,
-    role,
+    // Removed role from user creation
   });
   sendToken(user, 201, res, "User Registered!");
 });
 
 export const login = catchAsyncErrors(async (req, res, next) => {
-  const { email, password, role } = req.body;
-  if (!email || !password || !role) {
-    return next(new ErrorHandler("Please provide email ,password and role."));
+  const { email, password } = req.body; // Removed role from destructuring
+  if (!email || !password) {
+    return next(new ErrorHandler("Please provide email and password."));
   }
   const user = await User.findOne({ email }).select("+password");
   if (!user) {
@@ -37,14 +38,11 @@ export const login = catchAsyncErrors(async (req, res, next) => {
   if (!isPasswordMatched) {
     return next(new ErrorHandler("Invalid Email Or Password.", 400));
   }
-  if (user.role !== role) {
-    return next(
-      new ErrorHandler(`User with provided email and ${role} not found!`, 404)
-    );
-  }
+  // Removed role validation
   sendToken(user, 201, res, "User Logged In!");
 });
 
+// Logout Function
 export const logout = catchAsyncErrors(async (req, res, next) => {
   res
     .status(201)
@@ -58,9 +56,7 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-
-
-
+// Get User Function
 export const getUser = catchAsyncErrors((req, res, next) => {
   const user = req.user;
   res.status(200).json({
@@ -69,7 +65,7 @@ export const getUser = catchAsyncErrors((req, res, next) => {
   });
 });
 
-
+// Forgot Password Function
 export const forgot_password = catchAsyncErrors(async (req, res, next) => {
   const { email } = req.body;
 
@@ -85,15 +81,15 @@ export const forgot_password = catchAsyncErrors(async (req, res, next) => {
     service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
+      pass: process.env.EMAIL_PASS,
+    },
   });
 
   var mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
     subject: 'Reset Password Link',
-    text: `http://localhost:5173/reset-password/${user._id}/${token}`
+    text: `http://localhost:5173/reset-password/${user._id}/${token}`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -106,6 +102,7 @@ export const forgot_password = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+// Reset Password Function
 export const reset_password = catchAsyncErrors(async (req, res, next) => {
   const { id, token } = req.params;
   const { password } = req.body;
@@ -131,18 +128,4 @@ export const reset_password = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-export const getTotalEmployers = catchAsyncErrors(async (req, res, next) => {
-  const totalEmployers = await User.countDocuments({ role: 'Employer' });
-  res.status(200).json({
-    success: true,
-    totalEmployers,
-  });
-});
 
-export const getTotalJobSeekers = catchAsyncErrors(async (req, res, next) => {
-  const totalJobSeekers = await User.countDocuments({ role: 'Job Seeker' });
-  res.status(200).json({
-    success: true,
-    totalJobSeekers,
-  });
-});

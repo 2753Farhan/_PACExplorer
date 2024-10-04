@@ -10,9 +10,9 @@ import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import Home from "./components/Home/Home";
 import EducationalInterface from "./components/Education/EducationInterface";
-
+import WorkshopPage from "./components/Education/WorkshopPage";
 import NotFound from "./components/NotFound/NotFound";
-
+import ResourcesPage from "./components/Education/ResourcesPage";
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
   useEffect(() => {
@@ -43,6 +43,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/learn/:gradeLevel" element={ <EducationalInterface />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/workshops" element={<WorkshopPage />} />
 
         </Routes>
         <Footer />

@@ -25,11 +25,6 @@ const userSchema = new mongoose.Schema({
     maxLength: [32, "Password cannot exceed 32 characters!"],
     select: false,
   },
-  role: {
-    type: String,
-    required: [true, "Please select a role"],
-    enum: ["Job Seeker", "Employer"],
-  },
   createdAt: {
     type: Date,
     default: Date.now,

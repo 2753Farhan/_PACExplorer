@@ -23,8 +23,9 @@ const Globe = () => {
 
   return (
     <mesh ref={globeRef}>
-      <sphereGeometry args={[2, 32, 32]} />
+      <sphereGeometry args={[3, 34, 42]} />
       <meshStandardMaterial color="white" />
+      
     </mesh>
   );
 };

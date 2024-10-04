@@ -10,7 +10,6 @@ import { Context } from "../../main";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
 
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
@@ -19,7 +18,7 @@ const Login = () => {
     try {
       const { data } = await axios.post(
         "http://localhost:4000/api/v1/user/login",
-        { email, password, role },
+        { email, password }, // Removed role from request body
         {
           headers: {
             "Content-Type": "application/json",
@@ -30,7 +29,6 @@ const Login = () => {
       toast.success(data.message);
       setEmail("");
       setPassword("");
-      setRole("");
       setIsAuthorized(true);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -53,23 +51,7 @@ const Login = () => {
             </h3>
           </div>
           <form onSubmit={handleLogin} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Login As
-              </label>
-              <div className="relative mt-1">
-                <select
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Select Role</option>
-                  <option value="Employer">Admin</option>
-                  <option value="Job Seeker">User</option>
-                </select>
-                <FaRegUser className="absolute right-3 top-3 text-gray-400" />
-              </div>
-            </div>
+            {/* Removed Role Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Email Address

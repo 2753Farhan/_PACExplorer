@@ -14,7 +14,6 @@ const Register = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
 
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
@@ -23,7 +22,7 @@ const Register = () => {
     try {
       const { data } = await axios.post(
         "http://localhost:4000/api/v1/user/register",
-        { name, phone, email, role, password },
+        { name, phone, email, password }, // Removed role from request body
         {
           headers: {
             "Content-Type": "application/json",
@@ -36,7 +35,6 @@ const Register = () => {
       setEmail("");
       setPassword("");
       setPhone("");
-      setRole("");
       setIsAuthorized(true);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -72,24 +70,6 @@ const Register = () => {
               Create a new account
             </h3>
             <form onSubmit={handleRegister} className="space-y-4">
-              {/* Role Selector */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Register As
-                </label>
-                <div className="flex items-center bg-gray-100 rounded-md px-4 py-2">
-                  <select
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                    className="w-full bg-transparent border-none outline-none text-gray-700"
-                  >
-                    <option value="">Select Role</option>
-                    <option value="Employer">Employer</option>
-                    <option value="Job Seeker">Job Seeker</option>
-                  </select>
-                  <FaRegUser className="text-gray-500 ml-2" />
-                </div>
-              </div>
 
               {/* Name Field */}
               <div>

@@ -7,7 +7,7 @@ import { Context } from '../../main';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const { isAuthorized, setIsAuthorized, user } = useContext(Context);
+  const { isAuthorized, setIsAuthorized } = useContext(Context);
   const navigateTo = useNavigate();
 
   const handleLogout = async () => {
@@ -41,8 +41,8 @@ const Navbar = () => {
   }
 
   return (
-    <div className="flex justify-between items-center h-24 w-full px-4 text-white bg-[#001f3f]">
-      <span className="text-3xl font-bold text-[#0cda50]">REACT.</span>
+    <div className="fixed top-0 left-0 right-0 h-24 flex justify-between items-center px-4 py-5 text-white bg-[#001f3f] z-10">
+      <img src="/logo.png" alt="logo" className='w-36 h-24' />
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-6">
@@ -50,10 +50,13 @@ const Navbar = () => {
           <Link to="/" className="p-4 hover:text-gray-300">Home</Link>
         </li>
         <li>
-          <Link to="/company" className="p-4 hover:text-gray-300">Company</Link>
+          <Link to="/resources" className="p-4 hover:text-gray-300">Resources</Link>
         </li>
         <li>
-          <Link to="/about" className="p-4 hover:text-gray-300">About</Link>
+          <Link to="/workshops" className="p-4 hover:text-gray-300">Workshops</Link>
+        </li>
+        <li>
+          <Link to="/about" className="p-4 hover:text-gray-300">About Us</Link>
         </li>
         <li>
           <Link to="/contact" className="p-4 hover:text-gray-300">Contact</Link>
@@ -87,10 +90,13 @@ const Navbar = () => {
             <Link to="/" onClick={() => setNav(false)}>Home</Link>
           </li>
           <li className="p-4 border-b border-gray-600">
-            <Link to="/company" onClick={() => setNav(false)}>Company</Link>
+            <Link to="/resources" onClick={() => setNav(false)}>Resources</Link>
           </li>
           <li className="p-4 border-b border-gray-600">
-            <Link to="/about" onClick={() => setNav(false)}>About</Link>
+            <Link to="/workshops" onClick={() => setNav(false)}>Workshops</Link>
+          </li>
+          <li className="p-4 border-b border-gray-600">
+            <Link to="/about" onClick={() => setNav(false)}>About Us</Link>
           </li>
           <li className="p-4 border-b border-gray-600">
             <Link to="/contact" onClick={() => setNav(false)}>Contact</Link>
