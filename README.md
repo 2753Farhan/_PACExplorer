@@ -60,90 +60,94 @@ To set up PACExplorer locally, follow these steps:
 
 > This view highlights the Explore the PACE Mission section of our platform. It invites users to discover how NASA's PACE mission enhances our understanding of the oceans and atmosphere. The interactive globe provides a visual context for users, fostering a deeper connection with the oceanic research efforts.
 
-
 ---
 
 ## Interactive Learning Platform
-> Explore our interactive learning platform designed to engage young minds in marine science! These visuals capture children actively participating in ocean-themed activities, fostering curiosity and understanding about the ocean's mysteries. Each section is tailored for various age groups—Elementary, Middle School, and High School—ensuring a fun and educational experience for all learners.
 
-![Interactive Learning](path/to/interactive_learning_image.png)
+![learning_module](https://github.com/user-attachments/assets/84708574-da8a-4492-8b73-858ccb4961fd)
+
+> Explore our interactive learning platform designed to engage young minds in marine science! These visuals capture children actively participating in ocean-themed activities, fostering curiosity and understanding about the ocean's mysteries. Each section is tailored for various age groups—Elementary, Middle School, and High School—ensuring a fun and educational experience for all learners.
 
 ---
 
 ## Middle School Level
-> This screenshot showcases the Middle School level section of our interactive learning platform. It highlights the learning goal of understanding how oceans influence climate and weather patterns. The current topic focuses on ocean currents and their effects on global climate. Students can explore lessons on how oceans regulate global temperatures and impact climate patterns, making learning engaging and informative!
 
-![Middle School Level](path/to/middle_school_image.png)
+![middle_school](https://github.com/user-attachments/assets/8cfcc948-3f6c-4a58-9797-5ed4329e8622)
+
+> This screenshot showcases the Middle School level section of our interactive learning platform. It highlights the learning goal of understanding how oceans influence climate and weather patterns. The current topic focuses on ocean currents and their effects on global climate. Students can explore lessons on how oceans regulate global temperatures and impact climate patterns, making learning engaging and informative!
 
 ---
 
 ## Global Chlorophyll-A Distribution Map
-> This screenshot illustrates the interactive Global Chlorophyll-A Distribution Map, a key feature of our Ocean Explorer platform. Users can hover over the map to explore latitude and longitude coordinates, visualizing how chlorophyll levels vary globally. The simulation provides insights into oceanic data, enhancing understanding of marine ecosystems and their role in climate dynamics, as sourced from NASA's PACE dataset.
 
-![Chlorophyll-A Distribution Map](path/to/chlorophyll_map_image.png)
+![chloro](https://github.com/user-attachments/assets/be9b9422-839d-4b5e-91d2-c3cddacacd02)
+
+> This screenshot illustrates the interactive Global Chlorophyll-A Distribution Map, a key feature of our Ocean Explorer platform. Users can hover over the map to explore latitude and longitude coordinates, visualizing how chlorophyll levels vary globally. The simulation provides insights into oceanic data, enhancing understanding of marine ecosystems and their role in climate dynamics, as sourced from NASA's PACE dataset.
 
 ---
 
 ## Phytoplankton Visualization
+
+![phytoplankton](https://github.com/user-attachments/assets/9eb7bab9-6128-4ecf-bd4e-8f612f16bf48)
+
 > This screenshot showcases the Phytoplankton Visualization section of our Ocean Explorer platform. It features a color-coded map indicating phytoplankton concentrations: green areas represent high concentrations, while blue regions indicate lower activity. The quick fact highlights phytoplankton's crucial role in the oceanic food web and their importance in carbon absorption and oxygen production.
-
-![Phytoplankton Visualization](path/to/phytoplankton_visualization_image.png)
-
 ---
-
 ## Full Spectra from Oceans
-> This screenshot showcases the Full Spectra from Oceans section of our Ocean Explorer platform. It features an interactive map where users can click to explore wavelength data for specific locations in the global oceans.
 
-![Full Spectra from Oceans](path/to/full_spectra_image.png)
+![full_spectra](https://github.com/user-attachments/assets/bdf2f931-df59-483e-a76c-6cfb3e240252)
+
+> This screenshot showcases the Full Spectra from Oceans section of our Ocean Explorer platform. It features an interactive map where users can click to explore wavelength data for specific locations in the global oceans.
 
 ---
 
 ## Wavelength vs. Remote Sensing Reflectance
+
+![wave_length](https://github.com/user-attachments/assets/71d8a120-53b3-4971-b128-6ba35f86d5ee)
+
 > This displays the wavelength vs. remote sensing reflectance (Rrs) graph for a selected location. It illustrates how light interacts with ocean water at various depths, enhancing understanding of oceanic conditions and the valuable data collected from NASA's PACE mission.
 
-![Wavelength vs Rrs](path/to/wavelength_graph_image.png)
-
 ---
-
 ## Resources Section
+
+![resources](https://github.com/user-attachments/assets/2937da7e-6639-4a23-be3e-252425ebe70f)
+
 > This view highlights the Resources section of our platform, offering a variety of educational materials. Users can access lesson plans, videos, and animations that showcase the PACE mission and related ocean phenomena, making it a valuable tool for educators and students alike.
-
-![Resources Section](path/to/resources_image.png)
-
 ---
-
 ## Upcoming Workshops
-> This view presents upcoming workshops: Understanding Ocean Currents on October 15, 2024, Marine Ecosystems Exploration on October 22, 2024, and Climate Change and its Impact on October 29, 2024. Join us to explore ocean dynamics, protect marine ecosystems, and address climate change.
 
-![Upcoming Workshops](path/to/workshops_image.png)
+![workshop](https://github.com/user-attachments/assets/90da649d-29bc-427c-95ee-43d1577b04fd)
+
+> This view presents upcoming workshops: Understanding Ocean Currents on October 15, 2024, Marine Ecosystems Exploration on October 22, 2024, and Climate Change and its Impact on October 29, 2024. Join us to explore ocean dynamics, protect marine ecosystems, and address climate change.
 
 ---
 
 ## Phytoplankton Defense Game
-> This view features the Phytoplankton Defense game, where players can engage in an interactive experience focused on marine life. The game encourages players to score points while navigating through ocean challenges, providing a fun way to learn about phytoplankton and its role in the ecosystem.
 
-![Phytoplankton Defense Game](path/to/phytoplankton_defense_image.png)
+![games](https://github.com/user-attachments/assets/ae2de796-b1d0-4f16-8b2f-31042ec718af)
+
+> This view features the Phytoplankton Defense game, where players can engage in an interactive experience focused on marine life. The game encourages players to score points while navigating through ocean challenges, providing a fun way to learn about phytoplankton and its role in the ecosystem.
 
 ---
 
 ## The PACE Quiz
+
+![quiz](https://github.com/user-attachments/assets/409923bd-606a-48c2-bd95-ac4834e90995)
+
 > Welcome to The PACE Quiz, featuring 15 questions to test your knowledge of the PACE mission.
-
-![PACE Quiz Welcome](path/to/pace_quiz_welcome_image.png)
-
+> 
 ---
 
 ## Quiz Question
-> This view presents a quiz question: **'Which type of data is primarily collected by PACE?'** Users select from multiple-choice options.
 
-![Quiz Question](path/to/quiz_question_image.png)
+![quiz_1](https://github.com/user-attachments/assets/345a878c-485b-49ae-9d31-73c6b822df8e)
+
+> This view presents a quiz question: **'Which type of data is primarily collected by PACE?'** Users select from multiple-choice options.
 
 ---
 
 ## Quiz Results
+
+![quiz_2](https://github.com/user-attachments/assets/3ba6d6aa-e2ff-4664-b8d0-63eb07f53946)
+
 > This display shows a score of **25 out of 145 (18%)** and encourages users to retake the quiz to improve their high score.
-
-![Quiz Results](path/to/quiz_results_image.png)
-
-
 
